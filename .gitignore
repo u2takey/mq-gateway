@@ -1,0 +1,7 @@
+_output/
+.idea
+
+
+# Go vendor directory
+vendor
+

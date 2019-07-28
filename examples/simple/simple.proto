@@ -1,0 +1,24 @@
+syntax = "proto3";
+package main;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+
+message EchoRequest {
+    // common
+    string Hello = 1;
+    repeated string Names = 2;
+}
+
+message EchoResponse {
+    string Hello = 1;
+}
+
+service EchoService {
+    rpc echo(EchoRequest) returns (EchoResponse) {
+        option (google.api.http) = {
+          post : "/v1/echo"
+          body : "*"
+        };
+    }
+}
